@@ -1,29 +1,16 @@
 #include <SPI.h>
-//#include <WiFi101.h>
 #include <WiFi.h>
 #define DEBUG_RESPONSE 1
 #include <Parse.h>
 
-const char* ssid = "Chantha Pisal";//"Cafe Studio TTP";////  //Enter SSID 
-const char* password ="sn221133";//"Cafestudio2020"; // Enter Password//
-
-/*
- $ curl -X POST \
--H "X-Parse-Application-Id: any-random-number-of-strings" \
--H "Content-Type: application/json" \
--d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
-http://io.agrokh.com:1337/parse/classes/GameScore
-*/
-
-
+const char* ssid = "Your SSID";
+const char* password ="Password"
+const char* YOUR_PARSE_URL="yourparseserver.com";
 //Settings
 #define SLOW_BOOT 0
 #define HOSTNAME "PARSE"
 #define FORCE_USE_HOTSPOT 0
 
-
-//const char* ssid = "ESPUI";
-//const char* password = "espui";
 const char* hostname = "Parse";
 
 String ledState;
@@ -213,12 +200,11 @@ connectWifi();
 
 // appId and clientKey will be provided in provisioning
   Parse.begin("any-random-number-of-strings", "kjlsfkjlsfjh");
-  Parse.setServerURL("io.agrokh.com");
+  Parse.setServerURL(YOUR_PARSE_URL);
 
   // do provisioning now
   Serial.println("Please go to arduino.local/parse_config.html to complete device provisioning. Press y when you are done.");
  
-  //Parse.setInstallationId("97cb943f-38b6-ec68-e9ec-6229ba3f2f9e");
   Serial.println("Parse blinky example started: InstalltionID");
   Serial.println(Parse.getInstallationId());
   //Serial.println(Parse.getSessionToken());
