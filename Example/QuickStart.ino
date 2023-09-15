@@ -172,21 +172,8 @@ void connectWifi() {
 		Serial.println(WiFi.localIP());
 		Serial.println("Wifi started");
 
-	} else {
-		Serial.println("\nCreating access point...");
-		WiFi.mode(WIFI_AP);
-		WiFi.softAPConfig(IPAddress(192, 168, 1, 1), IPAddress(192, 168, 1, 1), IPAddress(255, 255, 255, 0));
-		WiFi.softAP(HOSTNAME);
-
-		connect_timeout = 20;
-		do {
-			delay(250);
-			Serial.print(",");
-			connect_timeout--;
-		} while(connect_timeout);
 	}
 }
-//int status = WL_IDLE_STATUS;
 
 void setup() {
  //Initialize serial and wait for port to open:
